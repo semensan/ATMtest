@@ -1,0 +1,26 @@
+<project name="ATM.JUnit.test" default="main" >
+	<target name="clean" description="clean up">
+		<delete dir="build"/>
+	</target>
+
+	<target name="makedir" description="Make some dirs">
+		<mkdir dir="build"/>
+        <mkdir dir="build/class"/>
+	</target>
+	
+	<target name="compile" description="compile java" depends="clean,makedir">
+		<javac destdir="build/class">
+			<src path="src"/>
+		</javac>
+	</target>
+	
+	<target name="test" description="junit test" depends="compile">
+		<javac destdir="build/class" classpath="mockito-all-1.9.5.jar">
+			<src path="test"/>
+		</javac>
+	</target>
+	
+	<target name="main" description="main target" depends="compile,test">
+		<echo>main target</echo>
+	</target>
+</project>
