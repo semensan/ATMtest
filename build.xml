@@ -15,7 +15,7 @@
 	</target>
 	
 	<target name="test" description="junit test" depends="compile">
-		<javac destdir="build/class" classpath="mockito-all-1.9.5.jar">
+		<javac destdir="build/class" classpath="mockito-all-1.9.5.jar,junit.jar">
 			<src path="test"/>
 		</javac>
 	</target>
