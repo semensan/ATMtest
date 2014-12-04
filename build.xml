@@ -1,4 +1,10 @@
 <project name="ATM.JUnit.test" default="main" >
+	<path id="libpath">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
 	<target name="clean" description="clean up">
 		<delete dir="build"/>
 	</target>
@@ -15,7 +21,7 @@
 	</target>
 	
 	<target name="test" description="junit test" depends="compile">
-		<javac destdir="build/class" classpath="mockito-all-1.9.5.jar,junit.jar">
+		<javac destdir="build/class" classpathref="libpath">
 			<src path="test"/>
 		</javac>
 	</target>
